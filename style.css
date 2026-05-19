@@ -1,0 +1,869 @@
+@charset "utf-8";
+/* 全体 */
+html {
+  /* スムーズにスクロールさせる設定（すでに入っていなければ追加） */
+  scroll-behavior: smooth;
+}
+/* ーーー【一時的な確認用】はみ出している犯人を赤枠で囲む ーーー */
+  /* * {
+    outline: 1px solid red !important;
+  } */
+
+body {
+  background: #f7f3ee;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+}
+.about,.profile,.gallery,.contact{
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;  
+}
+/* ==========================================
+   上に戻るボタン（TOPボタン）
+   ========================================== */
+.page-top-btn {
+  position: fixed;
+  right: 100px;        /* 右からの距離 */
+  bottom: 50px;       /* 下からの距離 */
+  z-index: 90;        /* ヘッダー(100)より下、画像より上の位置 */
+  
+  width: 100px;
+  height: 100px;
+  background-color: #8d857c; /* サイトのトンマナに合わせたブラウン */
+  color: #fff;
+  text-align: center;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* まんまる */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
+  text-decoration: none;
+  font-size: 18px;
+  
+  /* 最初は非表示（透明） */
+  opacity: 0;
+  pointer-events: none; /* 透明な時はクリックできないようにする */
+  
+  /* ふわっと変化させる設定 */
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ホバー時に少し浮き上がらせる */
+.page-top-btn:hover {
+  background-color: #7a7269; /* 少し濃いブラウンに */
+  transform: translateY(-3px);
+}
+
+/* ★JavaScriptでこのクラスがついたら表示する */
+.page-top-btn.show {
+  opacity: 1;
+  pointer-events: auto; /* クリックできるようにする */
+}
+/* ヘッダー */
+
+header {
+  box-sizing: border-box;
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 24px 60px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  z-index: 100;
+
+  background: transparent;
+
+  transition: 0.4s;
+}
+
+header.scrolled .logo, header.scrolled nav a{
+  color: #3d3935;
+}
+.logo,nav a{
+  transition: 1s;
+}
+
+/* スクロール後 */
+
+header.scrolled {
+  background: rgba(255,255,255,0.15);
+
+  backdrop-filter: blur(10px);
+
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* ロゴ */
+
+.logo {
+  color: white;
+
+  font-size: 20px;
+
+  font-weight: 300;
+
+  letter-spacing: 0.15em;
+}
+
+
+/* ナビ */
+
+nav ul {
+  display: flex;
+
+  gap: 40px;
+
+  list-style: none;
+}
+
+
+nav a {
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  letter-spacing: 0.1em;
+
+  font-weight: 300;
+
+  transition: 0.3s;
+}
+
+
+/* ホバー */
+
+nav a:hover {
+  opacity: 0.7;
+}
+
+/* ファーストビュー */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 動画 */
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* 黒overlay */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.3);
+}
+
+
+/* テキスト */
+
+.hero-content {
+  position: absolute; /* absolute に変更 */
+  z-index: 10;
+  top: 50%;           /* 上下中央に配置するための準備 */
+  transform: translateY(-50%); /* 自身の高さの半分だけ上にずらして完全に中央に */
+  
+  /* ★固定のmarginの代わりに、画面右側からの距離で配置を制御 */
+  right: 100px;       /* 画面の右端から100pxの位置に固定 */
+  
+  max-width: 450px;   /* ★文章が横に広がりすぎないように制限 */
+  width: auto;        /* 画面に合わせて柔軟に */
+
+  text-align: left;
+  color: white;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  padding: 0;         /* paddingは一旦リセット */
+}
+
+
+
+.sub-title {
+  font-size: 14px;
+  letter-spacing: 3px;
+
+  margin-bottom: 20px;
+
+  opacity: 0.8;
+}
+
+
+.hero-content h1 {
+  /* ★font-sizeを「48px」から「3.5vw + 16px」のような柔軟な形に変更 */
+  font-size: clamp(32px, 3.5vw + 16px, 48px); /* 最小32px、画面に合わせて変化、最大48pxに制限 */
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-weight: 300;
+  text-align: left;
+  letter-spacing: 0.2em;
+}
+
+
+.hero-text {
+  font-size: 14px;
+  font-weight: 200;
+  opacity: 0.8;
+}
+
+.scroll-indicator {
+  position: absolute;
+
+  bottom: 40px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: white;
+
+  z-index: 10;
+}
+
+
+/* Scroll文字 */
+
+.scroll-indicator span {
+  font-size: 12px;
+
+  letter-spacing: 0.2em;
+
+  margin-bottom: 10px;
+
+  opacity: 0.8;
+}
+
+
+/* 線 */
+
+.line {
+  width: 1px;
+  height: 60px;
+
+  background: white;
+
+  opacity: 0.7;
+
+  animation: scrollLine 2s infinite;
+}
+
+
+/* アニメーション */
+
+@keyframes scrollLine {
+
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+.gallery-btn {
+  display: inline-block;
+
+  margin-top: 40px;
+
+  padding: 14px 32px;
+
+  border: 1px solid rgba(255,255,255,0.7);
+
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  letter-spacing: 0.1em;
+
+  font-weight: 300;
+
+  transition: 0.3s;
+
+  backdrop-filter: blur(5px);
+
+  -webkit-backdrop-filter: blur(5px);
+}
+.gallery-btn:hover {
+  background: rgba(255,255,255,0.15);
+
+  transform: translateY(-2px);
+}
+
+/* ABOUT */
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+  gap: 120px;
+
+  padding: 140px 10%;
+
+  background: #f7f3ee;
+}
+
+
+/* 左画像 */
+
+.about-image {
+  width: 420px;
+}
+
+
+.about-image img {
+  width: 100%;
+  height: 600px;
+  margin-left: -150px;
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* 右テキスト */
+
+.about-content {
+  max-width: 420px;
+}
+
+
+/* セクションタイトル */
+
+.section-title {
+  font-size: 24px;
+
+  letter-spacing: 0.25em;
+
+  margin-bottom: 50px;
+
+  color: #8d857c;
+}
+
+
+/* 各項目 */
+
+.about-item {
+  padding: 22px 0;
+
+  border-bottom: 1px solid #d8d2ca;
+}
+
+
+/* 見出し */
+
+.about-item h3 {
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+
+  font-weight: 400;
+
+  margin-bottom: 12px;
+
+  color: #8d857c;
+}
+
+
+/* 内容 */
+
+.about-item p {
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  font-weight: 300;
+
+  color: #3d3935;
+}
+
+/* PROFILE */
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ccc;
+  gap: 120px;
+
+  padding: 140px 10%;
+
+  background: #f7f3ee;
+}
+
+
+/* 左画像 */
+
+.profile-image {
+  width: 420px;
+}
+
+
+.profile-image img {
+  width: 100%;
+  height: 600px;
+  margin-left: 150px;
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* 右テキスト */
+
+.profile-content {
+  max-width: 420px;
+}
+
+
+
+/* 各項目 */
+
+.profile-item {
+  padding: 22px 0;
+
+  border-bottom: 1px solid #d8d2ca;
+}
+
+
+/* 見出し */
+
+.profile-item h3 {
+  font-size: 12px;
+
+  letter-spacing: 0.18em;
+
+  font-weight: 400;
+
+  margin-bottom: 12px;
+
+  color: #8d857c;
+}
+
+
+/* 内容 */
+
+.profile-item p {
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  font-weight: 300;
+
+  color: #3d3935;
+}
+
+/* GALLERY */
+.gallery {
+  border-bottom: 1px solid #ccc;
+  padding: 0 20px; /* スマホ時の画面端の余白 */
+}
+
+.gallery-content p {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* marginの代わりにgapを使うと計算が楽になります */
+  margin-bottom: 100px;
+}
+
+.gallery-images a {
+  /* パソコンでは3カラム（3枚並び）、スマホでは自動縮小 */
+  
+  /* min-width: 280px; これ以上は小さくならないサイズ */
+  width: calc(50% - 10px); 
+  
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gallery-images img {
+  width: 100%; /* 親要素(aタグ)の幅いっぱいに広げる */
+  height: auto; /* 高さを統一するときれいに揃います */
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* ついでに画像ホバー時にちょっと拡大するエフェクト */
+.gallery-images a:hover img {
+  transform: scale(1.05);
+}
+
+#gallery:target {
+  /* Galleryがメニューから押されて飛んできた瞬間だけ、
+     ヘッダーの分（90px）の「スクロールのゆとり」を作ります */
+  scroll-margin-top: 90px;
+}
+
+
+/* モーダル全体の背景 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75); /* 0.3 から 0.75 にして背景を暗く */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain; /* 縦長・横長どちらの画像でも画面内に綺麗に収める */
+  border-radius: 8px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* FAVORITE */
+.favorite {
+  width: 100%;
+  max-width: none !important; /* セクション全体の1200px制限を完全に解除 */
+  background: #f7f3ee;
+  overflow: hidden;           /* 横にはみ出た写真を綺麗に隠す */
+  position: relative;
+  
+  /* ★修正：ここにあった border-bottom は削除します */
+}
+
+.favorite-content p {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+/* ★新設：スライダーの下に、他と同じ1200pxの線を引くための仕掛け */
+.favorite::after {
+  content: "";
+  display: block;
+  width: 100%;
+  max-width: 1200px;  /* 他のセクションと同じ1200pxに制限 */
+  margin: 0 auto;     /* 画面の真ん中に配置 */
+  border-bottom: 1px solid #ccc; /* 他と同じ色の線 */
+  margin-top: 150px;
+}
+
+/* スライダー全体のサイズと位置調整 */
+.favorite-slider {
+  width: 100%;
+  max-width: 100% !important; /* スライダー本体も1200pxの呪縛を解く */
+  margin: 0 auto !important;   /* 確実に中央配置 */
+  padding: 40px 0;
+  position: relative;
+  
+  /* ★修正：下の線との間隔をここで調整（150pxから80pxにして程よい余白に） */
+  margin-bottom: 80px; 
+}
+
+/* スライド（画像1枚分）の基本設定 */
+.swiper-slide {
+  overflow: hidden;
+  border-radius: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: scale(0.85);
+  opacity: 0.5;
+}
+
+/* 画像自体のサイズ調整 */
+.swiper-slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* 現在中央にあるスライド */
+.swiper-slide-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* 矢印コンテナ（白い円形）の調整 */
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.4s ease, transform 0.4s ease;
+  z-index: 20;
+}
+
+/* 矢印（中身）のサイズ、色、太さの調整 */
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px;
+  color: #8d857c;
+  font-weight: bold;
+}
+
+/* ホバー時の動き */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-2px);
+}
+
+/* 1. 通常時のドット（存在感を消しすぎず、馴染む色） */
+.swiper-pagination-bullet {
+  background: #000000 !important;
+  opacity: 0.7;
+  width: 8px;
+  height: 8px;
+  transition: all 0.3s ease;
+}
+
+/* 2. 現在選ばれているドット（引き締める色） */
+.swiper-pagination-bullet-active {
+  background: #644b2f !important;
+  opacity: 1;
+}
+
+
+/* ==========================================
+   CONTACT（お手紙風フォーム）CSS
+   ========================================== */
+.message {
+  padding: 140px 10%;
+  background: #f7f3ee; /* 全体と同じベージュ */
+}
+
+.contact-inner {
+  max-width: 600px; /* フォームが広がりすぎないように制限 */
+  margin: 0 auto;
+}
+
+.contact-intro {
+  text-align: center;
+  font-size: 14px;
+  color: #8d857c;
+  margin-bottom: 40px;
+  letter-spacing: 0.1em;
+}
+
+/* ★ここがお手紙（便箋）の本体 */
+.letter-box {
+  background: #ffffff; /* 真っ白な便箋 */
+  padding: 50px 40px;
+  border-radius: 8px; /* 優しい角丸 */
+  box-shadow: 0 10px 30px rgba(141, 133, 124, 0.15); /* ブラウン系の淡い影でふわりと浮かせる */
+}
+
+/* 入力グループ（縦並びにする） */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+/* 項目名（お名前、など） */
+.form-group label {
+  font-size: 12px;
+  color: #8d857c;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+/* 入力エリア（枠線のカスタム） */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #d8d2ca; /* サイト内の線と同じ薄いブラウン */
+  background: #faf8f5; /* 入力欄の中はほんのり温かみのある白 */
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  color: #3d3935;
+  transition: all 0.3s ease;
+}
+
+/* 入力欄をクリックしたとき（フォーカス時）のオシャレな演出 */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #8d857c; /* 線の色を少し濃く */
+  background: #ffffff;   /* 背景をパッと白にする */
+  box-shadow: 0 0 8px rgba(141, 133, 124, 0.1);
+}
+
+/* ボタンの配置エリア */
+.btn-area {
+  text-align: center;
+  margin-top: 35px;
+}
+
+/* 送信ボタン */
+.submit-btn {
+  display: inline-block;
+  background-color: #8d857c; /* サイトのテーマカラー */
+  color: #ffffff;
+  border: none;
+  padding: 14px 45px;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  border-radius: 30px; /* まるっこいボタン */
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(141, 133, 124, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* ボタンにマウスを乗せたときのふわっとした動き */
+.submit-btn:hover {
+  background-color: #7a7269; /* 少し濃く */
+  transform: translateY(-2px); /* 少し浮き上がる */
+  box-shadow: 0 6px 20px rgba(141, 133, 124, 0.4);
+}
+
+/* ==========================================
+   FOOTER（フッター）CSS
+   ========================================== */
+.footer {
+  background: #52463a; /* 全体と同じベージュ */
+  padding: 60px 0;
+  border-top: 1px solid #d8d2ca; /* 上部にうっすらと区切り線を入れる */
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+  
+  display: flex;
+  flex-direction: column; /* 縦に並べる（ロゴ → メニュー → コピーライト） */
+  align-items: center;    /* すべて中央揃えに */
+  gap: 30px;              /* それぞれの間隔 */
+}
+
+/* フッターのロゴ */
+.footer-logo-link {
+  text-decoration: none;
+}
+
+.footer-logo {
+  color: #f7f3ee; /* ヘッダーの白とは違い、落ち着いたブラウン */
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo:hover {
+  opacity: 0.7;
+}
+
+/* フッターのナビゲーション */
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* スマホで画面が狭くなったら自動で折り返すように */
+  gap: 30px;       /* メニュー同士の隙間 */
+  list-style: none;
+  padding: 0;
+}
+
+.footer-nav a {
+  color: #f7f3ee; /* 文字色を優しいブラウンに */
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+  transition: opacity 0.3s ease;
+}
+
+.footer-nav a:hover {
+  opacity: 0.6; /* ホバー時にふわっと薄く */
+}
+
+/* コピーライト */
+.copyright {
+  font-size: 11px;
+  color: #f7f3ee; /* さらに一段階薄いグレーブラウンで控えめに記述 */
+  letter-spacing: 0.05em;
+  margin-top: 10px;
+}
+
+/* スマホ用の余白調整 */
+@media screen and (max-width: 640px) {
+  .footer-inner {
+    padding: 0 20px;
+    gap: 25px;
+  }
+  .footer-nav ul {
+    gap: 20px; /* スマホではメニューの間隔を少し詰める */
+  }
+}
+
+

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ななの紹介サイト</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header id="header">
+    <a href="index.html">
+      <div class="logo">NANA</div>
+    </a>
+
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開閉する">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="header-nav" id="js-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#favorite">Favorite Shots</a></li>
+        <li><a href="#message">Message</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/nanamovie.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+      <h1>
+        ちいさくて、<br>
+        気まぐれで、<br>
+        愛おしい。
+      </h1>
+
+      <p class="hero-text">
+        ななとの毎日を、のぞいてみてください。
+      </p>
+      <a href="#gallery" class="gallery-btn">
+        ギャラリーを見る
+      </a>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+
+      <div class="line"></div>
+    </div>
+
+  </section>
+
+  <section class="about" id="about">
+
+    <div class="about-image">
+      <img src="images/A7C06782.JPG" alt="なな">
+    </div>
+
+    <div class="about-content">
+
+      <p class="section-title">
+        ABOUT
+      </p>
+
+      <div class="about-item">
+        <h3>名前</h3>
+        <p>なな</p>
+      </div>
+
+      <div class="about-item">
+        <h3>犬種</h3>
+        <p>チワワ</p>
+      </div>
+
+      <div class="about-item">
+        <h3>性格</h3>
+        <p>内弁慶</p>
+      </div>
+
+      <div class="about-item">
+        <h3>すきなこと</h3>
+        <p>肉</p>
+      </div>
+
+      <div class="about-item">
+        <h3>きらいなこと</h3>
+        <p>他人</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile" id="profile">
+
+    <div class="profile-content">
+
+      <p class="section-title">
+        PROFILE
+      </p>
+
+      <div class="profile-item">
+        <h3>誕生日</h3>
+        <p>なな</p>
+      </div>
+
+      <div class="profile-item">
+        <h3>体重</h3>
+        <p>チワワ</p>
+      </div>
+
+      <div class="profile-item">
+        <h3>チャームポイント</h3>
+        <p>内弁慶</p>
+      </div>
+
+      <div class="profile-item">
+        <h3>特技</h3>
+        <p>肉</p>
+      </div>
+
+      <div class="profile-item">
+        <h3>ひとこと</h3>
+        <p>他人</p>
+      </div>
+    </div>
+    <div class="profile-image">
+      <img src="images/A7C06774.JPG" alt="なな">
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-content">
+      <p class="section-title">GALLERY</p>
+    </div>
+    <div class="gallery-images">
+      <!-- hrefを「#」ではなく、画像のパスに変更します -->
+      <a href="images/gallery/nana01.webp" class="gallery-link">
+        <img src="images/gallery/nana01.webp" alt="ななちゃんの写真01">
+      </a> 
+      <a href="images/gallery/nana02.webp" class="gallery-link">
+        <img src="images/gallery/nana02.webp" alt="ななちゃんの写真02">
+      </a>
+      <a href="images/gallery/nana03.webp" class="gallery-link">
+        <img src="images/gallery/nana03.webp" alt="ななちゃんの写真03">
+      </a>
+      <a href="images/gallery/nana04.webp" class="gallery-link">
+        <img src="images/gallery/nana04.webp" alt="ななちゃんの写真04">
+      </a>
+      <a href="images/gallery/nana05.webp" class="gallery-link">
+        <img src="images/gallery/nana05.webp" alt="ななちゃんの写真05">
+      </a>
+      <a href="images/gallery/nana06.webp" class="gallery-link">
+        <img src="images/gallery/nana06.webp" alt="ななちゃんの写真06">
+      </a>
+    </div>
+  </section>
+
+ <!-- FAVORITE SHOTS -->
+
+  <section class="favorite" id="favorite">
+    <div class="favorite-content">
+      <p class="section-title">MY FAVORITE SHOTS</p>
+    </div>
+
+    <div class="swiper favorite-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="images/favorite/favorite01.webp" class="favorite-link">
+            <img src="images/favorite/favorite01.webp" alt="お気に入り01">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="images/favorite/favorite02.webp" class="favorite-link">
+            <img src="images/favorite/favorite02.webp" alt="お気に入り02">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="images/favorite/favorite03.webp" class="favorite-link">
+            <img src="images/favorite/favorite03.webp" alt="お気に入り03">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="images/favorite/favorite04.webp" class="favorite-link">
+            <img src="images/favorite/favorite04.webp" alt="お気に入り03">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="images/favorite/favorite05.webp" class="favorite-link">
+            <img src="images/favorite/favorite05.webp" alt="お気に入り03">
+          </a>
+        </div>
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section id="message" class="message">
+    <div class="contact-inner">
+    
+      <h2 class="section-title" style="text-align: center;">MESSAGE</h2>
+      <p class="contact-intro">ななちゃんへのファンレターはこちらからどうぞ🐾</p>
+    
+      <div class="letter-box">
+        <form action="#" method="POST" class="contact-form">
+        
+          <div class="form-group">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" placeholder="ななちゃんファン">
+          </div>
+        
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input type="email" id="email" name="email" placeholder="example@email.com">
+          </div>
+        
+          <div class="form-group">
+            <label for="message">メッセージ</label>
+            <textarea id="message" name="message" rows="6" placeholder="ななちゃんいつも癒やしをありがとう！大好きです！"></textarea>
+          </div>
+        
+          <div class="btn-area">
+            <button type="submit" class="submit-btn">手紙を送る ✉</button>
+          </div>
+        
+        </form>
+      </div>
+    
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+    
+      <a href="index.html" class="footer-logo-link">
+        <div class="footer-logo">NANA</div>
+      </a>
+    
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#favorite">Favorite Shots</a></li>
+          <li><a href="#message">Message</a></li> </ul>
+      </nav>
+    
+      <p class="copyright">&copy; 2026 NANA All Rights Reserved.</p>
+    
+    </div>
+  </footer>
+
+
+  <!-- ポップアップ本体（中身のsrcは空にしておき、JSで後から入れます） -->
+  <div id="imageModal" class="modal">
+    <span class="close-btn" id="closeModal">&times;</span>
+    <img class="modal-content" id="modalImg" src="" alt="拡大画像">
+  </div>
+  <a href="#" id="pageTop" class="page-top-btn">
+    <p class="sankaku">▲</p>
+  </a>
+  
+</body>
+</html>
