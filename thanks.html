@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thank you</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+      overflow:hidden;
+
+      font-family:
+      "Hiragino Sans",
+      "Yu Gothic",
+      sans-serif;
+
+      background:
+      linear-gradient(
+        135deg,
+        #fff8f2 0%,
+        #fffdf9 45%,
+        #f7f3ee 100%
+      );
+    }
+
+    .bg-circle{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(80px);
+      opacity:0.4;
+      z-index:-1;
+    }
+
+    .circle1{
+      width:300px;
+      height:300px;
+      background:#ffd7c8;
+      top:-100px;
+      left:-100px;
+    }
+
+    .circle2{
+      width:260px;
+      height:260px;
+      background:#ffeabf;
+      bottom:-100px;
+      right:-80px;
+    }
+
+    .thanks-card{
+      width:100%;
+      max-width:560px;
+
+      padding:70px 45px;
+
+      border-radius:32px;
+
+      background:
+      rgba(255,255,255,0.72);
+
+      backdrop-filter:blur(16px);
+
+      border:
+      1px solid rgba(255,255,255,0.5);
+
+      box-shadow:
+      0 20px 60px rgba(0,0,0,0.08);
+
+      text-align:center;
+
+      animation:fadeUp 1s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:
+        translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:
+        translateY(0);
+      }
+    }
+
+    .mail-icon{
+      font-size:58px;
+      margin-bottom:28px;
+
+      animation:float 3s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(0px);
+      }
+
+      50%{
+        transform:translateY(-8px);
+      }
+
+      100%{
+        transform:translateY(0px);
+      }
+    }
+
+    h1{
+      font-size:32px;
+      color:#333;
+      margin-bottom:22px;
+      letter-spacing:0.05em;
+      font-weight:600;
+    }
+
+    .message{
+      color:#666;
+      line-height:2.2;
+      font-size:15px;
+      margin-bottom:42px;
+    }
+
+    .back-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:15px 34px;
+
+      border-radius:999px;
+
+      text-decoration:none;
+
+      color:#fff;
+
+      background:
+      linear-gradient(
+        135deg,
+        #ffb49a,
+        #ff9f80
+      );
+
+      font-size:14px;
+      letter-spacing:0.08em;
+
+      transition:
+      transform 0.3s,
+      box-shadow 0.3s;
+    }
+
+    .back-btn:hover{
+      transform:translateY(-3px);
+
+      box-shadow:
+      0 10px 25px rgba(255,159,128,0.35);
+    }
+
+    .mini-text{
+      margin-top:28px;
+      font-size:12px;
+      color:#aaa;
+      letter-spacing:0.08em;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="bg-circle circle1"></div>
+  <div class="bg-circle circle2"></div>
+
+  <section class="thanks-card">
+
+    <div class="mail-icon">
+      ✉
+    </div>
+
+    <h1>
+      お手紙ありがとう
+    </h1>
+
+    <p class="message">
+      メッセージを受け取りました。<br>
+      あたたかい気持ちを届けてくれてありがとう。<br>
+      ななちゃんもきっと喜んでいます🐾
+    </p>
+
+    <a href="index.html" class="back-btn">
+      トップページへ戻る
+    </a>
+
+    <p class="mini-text">
+      Thank you for your lovely message.
+    </p>
+
+  </section>
+
+</body>
+</html>
