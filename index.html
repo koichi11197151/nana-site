@@ -222,7 +222,7 @@
       <p class="contact-intro">ななちゃんへのファンレターはこちらからどうぞ🐾</p>
     
       <div class="letter-box">
-        <form action="https://formspree.io/f/mvzyanpy" method="POST" class="contact-form">
+        <form action="https://formspree.io/f/mvzyanpy" method="POST" class="contact-form" id="contact-form">
         
           <div class="form-group">
             <label for="name">お名前</label>
@@ -281,6 +281,37 @@
   <a href="#" id="pageTop" class="page-top-btn">
     <p class="sankaku">▲</p>
   </a>
-  
+
+  <script>
+
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+
+  if(response.ok){
+
+    window.location.href = "thanks.html";
+
+  }else{
+
+    alert("送信に失敗しました");
+
+  }
+
+});
+
+</script>
 </body>
 </html>
