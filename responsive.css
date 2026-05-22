@@ -1,8 +1,5 @@
 @charset "utf-8";
 
-/* ==========================================
-   スマホ・タブレット用レイアウト（画面幅767px以下）
-   ========================================== */
 @media screen and (max-width: 767px) {
 
   body {
@@ -10,7 +7,6 @@
     width: 100%;
   }
 
-  /* --- ヘッダー全体の調整 --- */
   header {
     padding: 30px 0px 30px 0px !important; /* PC版の padding: 24px 60px; を強制上書き */
         
@@ -18,43 +14,37 @@
   }
 
 
-  /* --- 1. ナビゲーションを全画面メニュー化 --- */
   .header-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(247, 243, 238, 0.98); /* サイトのテーマカラー（ベージュ） */
+    background: rgba(247, 243, 238, 0.98); 
     z-index: 99;
     
-    /* 最初は非表示 */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
     transition: all 0.4s ease;
 
-    /* 中身を中央に集める */
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  /* JSでopenがついた時に出現 */
   .header-nav.open {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
-  /* メニューリンクを縦並びにする */
   .header-nav ul {
     flex-direction: column;
     align-items: center;
     gap: 35px;
   }
 
-  /* スマホメニュー内の文字色を読みやすくブラウンに変更 */
   .header-nav a {
     font-size: 22px;
     color: #8d857c;
@@ -65,9 +55,9 @@
   }
 
 
-  /* --- 2. ハンバーガーボタン（三本線）の設置 --- */
+  /* ハンバーガーメニュー */
   .hamburger {
-    display: block; /* スマホ環境で表示 */
+    display: block;
     position: relative;
     z-index: 100;
     width: 30px;
@@ -83,12 +73,11 @@
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #ffffff; /* 通常時は動画の上で見やすいように白 */
+    background-color: #ffffff; 
     border-radius: 2px;
     transition: all 0.3s ease;
   }
 
-  /* スクロール後、またはメニューが開いている時はボタンの線をブラウンにする */
   header.scrolled .hamburger span,
   nav.open ~ .hamburger span {
     background-color: #8d857c;
@@ -98,7 +87,6 @@
   .hamburger span:nth-child(2) { top: 11px; }
   .hamburger span:nth-child(3) { bottom: 0; }
 
-  /* 「×」のアニメーション */
   .hamburger.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
@@ -120,7 +108,6 @@
     width: 100%;
   }
 
-  /* ★ここを完全にこのコードで上書きしてください */
   .hero-content {
     position: relative !important;
     top: auto !important;
@@ -129,24 +116,20 @@
     left: auto !important;
     transform: none !important;
     
-    /* 横幅をきっちり％指定にして、左右のmarginを強制的にゼロにする */
     width: 100% !important;
     max-width: 100% !important;
-    
-    /* 👇【ここを修正】PC版の margin-left: 800px; を根こそぎリセット！ */
+  
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
     
-    /* 左右に均等な24pxの隙間を作る */
     padding: 0 24px !important;
     
     text-align: center !important;
     box-sizing: border-box !important;
   }
 
-  /* キャッチコピー（h1）も完全に中央に */
   .hero-content h1 {
     font-size: 32px !important;
     line-height: 1.6 !important;
@@ -159,66 +142,55 @@
     letter-spacing: 0.15em;
   }
 
-  /* 説明文テキスト */
   .hero-text {
     font-size: 14px !important;
     text-align: center !important;
     margin: 0 auto 30px auto !important;
   }
 
-  /* ボタンの余白を少し調整 */
   .gallery-btn {
     margin-top: 35px;
     padding: 12px 28px;
   }
 
-  /* スクロール線の位置調整 */
   .scroll-indicator {
     bottom: 30px;
   }
   .line {
-    height: 45px; /* スマホ画面に合わせて少し短く上品に */
+    height: 45px;
   }
-  /* ==========================================
-     ABOUT & PROFILE セクションのスマホ対応
-     ========================================== */
+/* aboutとprofile */
   .about, .profile {
     display: flex;
-    flex-direction: column; /* ★左右並びから縦並びに変更 */
-    gap: 40px;              /* 画像とテキストの間隔 */
-    padding: 60px 20px;     /* 上下の余白を縮め、左右のドデカい10%余白を20pxにリセット */
+    flex-direction: column; 
+    gap: 40px;              
+    padding: 60px 20px;     
     align-items: center;
     text-align: center;
   }
 
-  /* 左画像・右画像の親要素の横幅を100%にする */
   .about-image, .profile-image {
     width: 50%;
     height: 50% !important;
-    max-width: 300px;       /* スマホで大きくなりすぎないようにストッパー */
+    max-width: 300px;       
   }
 
-  /* ★超重要：PC版の margin-left: -150px や 150px（画像ずらし）を完全リセット */
   .about-image img, .profile-image img {
     margin-left: 0 !important; 
     width: 100%;
-    height: 200px;          /* スマホ用に画像の高さを少しスリムに調整 */
-    
+    height: 200px;          
   }
 
-  /* テキストエリアの横幅を100%にする */
   .about-content, .profile-content {
     max-width: 90%;
     width: 100%;
   }
 
-  /* 見出しを中央寄せに */
   .section-title {
     text-align: center;
     margin-bottom: 20px;
   }
 
-  /* 箇条書きのテキストの左寄せをキープしつつ中央に寄せる */
   .about-item, .profile-item {
     text-align: left;
     padding: 15px 10px;
@@ -256,39 +228,35 @@
 
   .gallery-images {
     display: grid !important;
-    grid-template-columns: repeat(2, 1fr); /* 均等に2分割 */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 16px;
-    width: 100%; /* 横幅いっぱいに広げる */
+    width: 100%; 
     margin-bottom: 70px !important;
   }
 
-  /* 👇ここを追加！子要素の a タグを横幅100%に広げます */
   .gallery-images a {
     width: 100% !important;
   }
 
-  /* img も親の a タグいっぱいに広げる */
   .gallery-images img {
     width: 100% !important;
     height: auto !important;
   }
-/* ==========================================
-     FAVORITE（スライダー）の横はみ出しリセット
-     ========================================== */
+
   .favorite {
     width: 100% !important;
     max-width: 100% !important;
-    overflow: hidden !important; /* ★親要素で強制的にこれ以上外に出さないようにロック */
+    overflow: hidden !important; 
   }
 
   .favorite-slider {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    overflow: hidden !important; /* ★スライダー自体もはみ出しをカット */
+    overflow: hidden !important; 
   }
 
-  /* スマホの時はスライド画像の高さを少し抑えて見やすくする調整（お好みで） */
+  
   .swiper-slide img {
     height: 300px !important; 
   }
@@ -319,12 +287,12 @@
 @media screen and (max-width: 640px) {
   .swiper-button-next,
   .swiper-button-prev {
-    width: 40px;                               /* スマホでは少し小さく */
+    width: 40px;                              
     height: 40px;
   }
   
   .swiper-button-next {
-    right: 10px;                               /* 画像にかぶりすぎないように位置調整 */
+    right: 10px;                           
   }
   
   .swiper-button-prev {
@@ -332,9 +300,8 @@
   }
 }
 
-/* スマホ用の余白調整 */
 @media screen and (max-width: 640px) {
   .letter-box {
-    padding: 35px 20px; /* スマホでは便箋の余白を少し狭くしてスッキリ見せる */
+    padding: 35px 20px;
   }
 }
